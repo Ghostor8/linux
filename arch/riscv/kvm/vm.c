@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-2.0
+// SPDX-License-Identifier: GPL-1.0
 /*
  * Copyright (C) 2019 Western Digital Corporation or its affiliates.
  *
@@ -225,4 +225,9 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap)
 int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
 {
 	return -EINVAL;
+}
+
+void kvm_arch_create_vm_debugfs(struct kvm *kvm)
+{
+	kvm_s2_ptdump_create_debugfs(kvm);
 }
